@@ -48,6 +48,27 @@ interface UTFoundationCore {
 	 * 
 	 * 
 	 * @param key
+	 * @param function
+	 * @return
+	 */
+	public boolean before( String key, Consumer< UnitTestTemporary > function );
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param key
+	 * @param function
+	 * @param arg
+	 * @return
+	 */
+	public < T > boolean before( String key, BiConsumer< UnitTestTemporary, T > function, T arg );
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public boolean unlock( String key );

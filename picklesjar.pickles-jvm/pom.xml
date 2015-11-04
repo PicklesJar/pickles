@@ -5,10 +5,10 @@
 
 	<name>Pickles for Java</name>
 	<description></description>
-	<url>https://github.com/PicklesJar/pickes</url>
+	<url>https://github.com/PicklesJar/pickles</url>
 
-	<groupId>jp.picklesjar</groupId>
-	<artifactId>jp.picklesjar.pickles-jvm</artifactId>
+	<groupId>picklesjar</groupId>
+	<artifactId>picklesjar.pickles-jvm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -141,6 +141,12 @@
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${test.cucumber.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>picklesjar</groupId>
+			<artifactId>picklerecipes.ut</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
