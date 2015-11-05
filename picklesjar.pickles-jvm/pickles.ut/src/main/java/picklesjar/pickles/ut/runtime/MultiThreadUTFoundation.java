@@ -112,6 +112,67 @@ class MultiThreadUTFoundation
 	 * 
 	 * 
 	 * @param key
+	 * @param function
+	 * @return
+	 */
+	@Override
+	public synchronized boolean before( String key, Consumer< UnitTestTemporary > function ) {
+		
+		boolean result = false;
+		
+		if( ( isLocking() )
+			&& ( function != null ) ) {
+			
+			ThreadLocalData data = localdata.get();
+			if( data.lockKey.equals( key ) ) {
+				
+				data.temp = getUnitTestTemporaryWithoutNull();
+				
+				function.accept( data.temp );
+				result = true;
+			}
+			
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param key
+	 * @param function
+	 * @param arg
+	 * @return
+	 */
+	@Override
+	public synchronized < T > boolean before( String key, BiConsumer< UnitTestTemporary, T > function, T arg ) {
+		
+		boolean result = false;
+		
+		if( ( isLocking() )
+			&& ( function != null ) ) {
+			
+			ThreadLocalData data = localdata.get();
+			if( data.lockKey.equals( key ) ) {
+				
+				data.temp = getUnitTestTemporaryWithoutNull();
+				
+				function.accept( data.temp, arg );
+				result = true;
+			}
+			
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param key
 	 * @return
 	 */
 	@Override

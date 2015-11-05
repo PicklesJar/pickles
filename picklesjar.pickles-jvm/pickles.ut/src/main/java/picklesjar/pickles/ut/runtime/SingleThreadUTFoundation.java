@@ -105,6 +105,50 @@ class SingleThreadUTFoundation
 	 * 
 	 * 
 	 * @param key
+	 * @param function
+	 * @return
+	 */
+	@Override
+	public boolean before( String key, Consumer< UnitTestTemporary > function ) {
+		
+		boolean result = false;
+		
+		if( ( isLocking() )
+			&& ( lockKey.equals( key ) )
+			&& ( function != null ) ) {
+			
+			temp = getUnitTestTemporaryWithoutNull();
+			
+			function.accept( temp );
+			result = true;
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public < T > boolean before( String key, BiConsumer< UnitTestTemporary, T > function, T arg ) {
+		
+		boolean result = false;
+		
+		if( ( isLocking() )
+			&& ( lockKey.equals( key ) )
+			&& ( function != null ) ) {
+			
+			temp = getUnitTestTemporaryWithoutNull();
+			
+			function.accept( temp, arg );
+			result = true;
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param key
 	 * @return
 	 */
 	@Override
