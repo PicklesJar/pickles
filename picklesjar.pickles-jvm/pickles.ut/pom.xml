@@ -5,17 +5,18 @@
 
 	<name>Pickles UT Support</name>
 	<description></description>
-	<url>https://github.com/PicklesJar/pickes</url>
+	<url>https://github.com/PicklesJar/pickles</url>
 
 	<parent>
-		<groupId>jp.picklesjar</groupId>
-		<artifactId>jp.picklesjar.pickles-jvm</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>picklesjar</groupId>
+		<artifactId>picklesjar.pickles-jvm</artifactId>
+		<version>${project.version}</version>
 	</parent>
 	<artifactId>pickles.ut</artifactId>
 	<packaging>jar</packaging>
 
 	<properties>
+		<project.version>0.1</project.version>
 	</properties>
 
 	<build>

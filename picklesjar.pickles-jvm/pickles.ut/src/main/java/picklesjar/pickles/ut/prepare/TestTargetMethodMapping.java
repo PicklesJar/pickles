@@ -6,8 +6,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import picklesjar.pickles.ut.core.CucumberHook;
-
 /**
  * 
  * 
@@ -35,24 +33,10 @@ public @interface TestTargetMethodMapping {
 	public String[] features() default {};
 	
 	/**
-	 * Execute feature file paths of picklesjar.
-	 * 
-	 * @return
-	 */
-	public String[] pickled_features() default {};
-	
-	/**
 	 * Execute tag names.
 	 * 
 	 * @return
 	 */
 	public String[] tags() default {};
 	
-	/**
-	 * 
-	 * 
-	 * 
-	 * @return
-	 */
-	public Class< ? extends CucumberHook > hook() default CucumberHook.class;
 }
