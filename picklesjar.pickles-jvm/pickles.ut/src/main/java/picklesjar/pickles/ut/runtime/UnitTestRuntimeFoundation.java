@@ -18,7 +18,7 @@ import java.util.function.UnaryOperator;
  */
 public final class UnitTestRuntimeFoundation {
 	
-	public static final int SHINGLE_THREAD_MODE = 0x0;
+	public static final int SINGLE_THREAD_MODE = 0x0;
 	
 	public static final int MULTI_THREAD_MODE = 0x1;
 	
@@ -80,6 +80,28 @@ public final class UnitTestRuntimeFoundation {
 	public static boolean putScenarioName( String key, String scenarioName ) {
 	
 		return instance.putScenarioName( key, scenarioName );
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @return
+	 */
+	public static boolean before( String key, Consumer< UnitTestTemporary > function ) {
+	
+		return instance.before( key, function );
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @return
+	 */
+	public static < T > boolean before( String key, BiConsumer< UnitTestTemporary, T > function, T arg ) {
+	
+		return instance.before( key, function, arg );
 	}
 	
 	/**
