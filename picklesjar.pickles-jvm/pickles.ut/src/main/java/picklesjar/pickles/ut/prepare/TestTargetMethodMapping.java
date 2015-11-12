@@ -6,6 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import picklesjar.pickles.ut.recipes.MethodQueryString;
+
 /**
  * 
  * 
@@ -23,6 +25,7 @@ public @interface TestTargetMethodMapping {
 	 * 
 	 * @return
 	 */
+	@MethodQueryString
 	public String query();
 	
 	/**
