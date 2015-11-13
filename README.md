@@ -1,4 +1,4 @@
-# pickes
+# PicklesJar Project
 
 ## Overview
 PicklesJar Project is developing extension for "Cucumber" test framework.
