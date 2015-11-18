@@ -2,6 +2,7 @@ package picklesjar.pickles.ut.core;
 
 import picklesjar.pickles.ut.core.util.ClassFunctionTarget;
 import picklesjar.pickles.ut.core.util.MethodQuery;
+import picklesjar.pickles.ut.prepare.design.StereotypeDesign;
 import picklesjar.pickles.ut.runtime.UnitTestTemporary;
 
 public enum PreparedTemporaryKey
@@ -30,7 +31,12 @@ public enum PreparedTemporaryKey
 	/**
 	 * 
 	 */
-	TEST_TARGET_CLASS_FUNCTION( ClassFunctionTarget.class );
+	TEST_TARGET_CLASS_FUNCTION( ClassFunctionTarget.class ),
+	
+	/**
+	 * 
+	 */
+	TEST_TARGET_METHOD_OF_STEREOTYPE_DESIGN( StereotypeDesign.class );
 	
 	private Class< ? > targetClass = null;
 	

@@ -4,6 +4,7 @@ import java.util.function.BiConsumer;
 
 import picklesjar.pickles.ut.core.PreparedTemporaryKey;
 import picklesjar.pickles.ut.core.util.MethodQuery;
+import picklesjar.pickles.ut.prepare.design.StereotypeDesign;
 import picklesjar.pickles.ut.runtime.UnitTestRuntimeFoundation;
 import picklesjar.pickles.ut.runtime.UnitTestTemporary;
 
@@ -46,13 +47,34 @@ interface TestTargetingCommonUtil {
 			( BiConsumer< UnitTestTemporary, Object[] > )
 			( temp, keyAndValue ) -> {
 				
-				temp.put(
-					( String )keyAndValue[ 0 ],
-					( MethodQuery )keyAndValue[ 1 ] );
+				temp.put( ( String )keyAndValue[ 0 ], keyAndValue[ 1 ] );
 				
 			},
 			new Object[] {
 				key.name(), methodQuery } );
+		
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param lockKey
+	 * @param key
+	 * @param stereotype
+	 */
+	public static void setToTarget(
+		String lockKey, PreparedTemporaryKey key, StereotypeDesign stereotype ) {
+	
+		UnitTestRuntimeFoundation.before( lockKey,
+			( BiConsumer< UnitTestTemporary, Object[] > )
+			( temp, keyAndValue ) -> {
+				
+				temp.put( ( String )keyAndValue[ 0 ], keyAndValue[ 1 ] );
+				
+			},
+			new Object[] {
+				key.name(), stereotype } );
 		
 	}
 	

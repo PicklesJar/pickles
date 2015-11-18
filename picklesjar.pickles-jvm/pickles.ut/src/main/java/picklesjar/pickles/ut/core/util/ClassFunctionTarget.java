@@ -66,6 +66,7 @@ public class ClassFunctionTarget {
 				
 				Arrays.stream( constructors ).filter(
 					( constructor ) -> {
+						constructor.setAccessible( true );
 						return constructor.getName().equals( targetMethodName );
 						
 					} ).forEach(
@@ -83,6 +84,7 @@ public class ClassFunctionTarget {
 				
 				Arrays.stream( methods ).filter(
 					( method ) -> {
+						method.setAccessible( true );
 						return method.getName().equals( targetMethodName );
 						
 					} ).forEach(
@@ -210,6 +212,7 @@ public class ClassFunctionTarget {
 		if( ( targetClass != null ) && ( targetMethodQuery != null ) && ( constructorFlag ) ) {
 			
 			result = targetClass.getDeclaredConstructor( targetMethodParameters );
+			result.setAccessible( true );
 		}
 		
 		return result;
@@ -233,6 +236,7 @@ public class ClassFunctionTarget {
 			
 			result = targetClass.getDeclaredMethod(
 				targetMethodQuery.getMethodName(), targetMethodParameters );
+			result.setAccessible( true );
 		}
 		
 		return result;

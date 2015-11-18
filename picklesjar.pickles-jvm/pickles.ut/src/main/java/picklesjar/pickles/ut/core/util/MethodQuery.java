@@ -124,4 +124,67 @@ public final class MethodQuery {
 		
 		name = query.substring( 0, query.indexOf( "(" ) ).trim();
 	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param x
+	 * @return
+	 */
+	@Override
+	public boolean equals( Object x ) {
+	
+		boolean result = false;
+		
+		if( x instanceof MethodQuery ) {
+			result = equals( ( MethodQuery )x );
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param query
+	 * @return
+	 */
+	public boolean equals( MethodQuery query ) {
+	
+		boolean result = false;
+		
+		if( query != null ) {
+			
+			if( parameters == null ) {
+				result = name.equals( query.getMethodName() )
+					&& query.getMethodParameters() == null;
+				
+			} else if( query.getMethodParameters() != null ) {
+				
+				String[] xparameters = query.getMethodParameters();
+				if( parameters.length == xparameters.length ) {
+					
+					boolean paramCheck = true;
+					final int length = parameters.length;
+					for( int i = 0; i < length; ++i ) {
+						
+						if( !( parameters[ i ].equals( xparameters[ i ] ) ) ) {
+							paramCheck = false;
+							break;
+						}
+						
+					}
+					
+					result = name.equals( query.getMethodName() )
+						&& paramCheck;
+				}
+				
+			}
+			
+		}
+		
+		return result;
+	}
 }

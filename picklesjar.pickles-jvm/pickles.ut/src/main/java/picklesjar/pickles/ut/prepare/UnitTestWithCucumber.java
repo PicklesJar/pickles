@@ -24,6 +24,13 @@ public @interface UnitTestWithCucumber {
 	public String value();
 	
 	/**
+	 * multi thread use flag.
+	 * 
+	 * @return
+	 */
+	public boolean multiTread() default false;
+	
+	/**
 	 * Test target class.
 	 * Developer will find Class by this annotated class name if not set.
 	 * 

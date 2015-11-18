@@ -8,10 +8,10 @@ import picklesjar.pickles.ut.runtime.routine.targeting.ClassTargetingRoutine;
 
 public abstract class ClassTargetingOnMultiThreadRoutine
 	extends MultiThreadConfigRoutine
-		implements ClassTargetingRoutine {
+	implements ClassTargetingRoutine {
 	
 	@ShouldBeCalledInAnnotatedBy( BeforeClass.class )
-	public static void setUp( Class< ? > clazz ) {
+	protected static void setUp( Class< ? > clazz ) {
 	
 		MultiThreadConfigRoutine.setUp();
 		
@@ -19,8 +19,8 @@ public abstract class ClassTargetingOnMultiThreadRoutine
 	}
 	
 	@ShouldBeCalledInAnnotatedBy( BeforeClass.class )
-	public static void setUp( String className ) {
-		
+	protected static void setUp( String className ) {
+	
 		MultiThreadConfigRoutine.setUp();
 		
 		ClassTargetingRoutine.setToTargetClass( lockKey, className );

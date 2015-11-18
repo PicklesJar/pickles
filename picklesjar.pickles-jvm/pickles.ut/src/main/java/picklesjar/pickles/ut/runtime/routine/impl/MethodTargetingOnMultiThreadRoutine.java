@@ -12,7 +12,7 @@ public abstract class MethodTargetingOnMultiThreadRoutine
 	implements MethodTargetingRoutine {
 	
 	@ShouldBeCalledInAnnotatedBy( BeforeClass.class )
-	public static void setUp( Class< ? > clazz, MethodQuery methodQuery ) {
+	protected static void setUp( Class< ? > clazz, MethodQuery methodQuery ) {
 	
 		MultiThreadConfigRoutine.setUp();
 		
@@ -20,7 +20,7 @@ public abstract class MethodTargetingOnMultiThreadRoutine
 	}
 	
 	@ShouldBeCalledInAnnotatedBy( BeforeClass.class )
-	public static void setUp( String className, MethodQuery methodQuery ) {
+	protected static void setUp( String className, MethodQuery methodQuery ) {
 	
 		MultiThreadConfigRoutine.setUp();
 		
