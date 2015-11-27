@@ -6,6 +6,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import picklesjar.pickles.ut.prepare.design.StereotypeDesign;
+import picklesjar.pickles.ut.recipes.MethodQueryString;
+
 /**
  * 
  * 
@@ -23,6 +26,7 @@ public @interface TestTargetMethodMapping {
 	 * 
 	 * @return
 	 */
+	@MethodQueryString
 	public String query();
 	
 	/**
@@ -33,10 +37,30 @@ public @interface TestTargetMethodMapping {
 	public String[] features() default {};
 	
 	/**
+	 * Execute feature file paths.
+	 * 
+	 * @return
+	 */
+	public StereotypeDesign stereotype() default StereotypeDesign.NOT_STEREOTYPE;
+	
+	/**
 	 * Execute tag names.
 	 * 
 	 * @return
 	 */
 	public String[] tags() default {};
 	
+	/**
+	 * auto class targeting flag.
+	 * 
+	 * @return
+	 */
+	public boolean autoClassTargeting() default false;
+	
+	/**
+	 * auto method targeting flag.
+	 * 
+	 * @return
+	 */
+	public boolean autoMethodTargeting() default false;
 }

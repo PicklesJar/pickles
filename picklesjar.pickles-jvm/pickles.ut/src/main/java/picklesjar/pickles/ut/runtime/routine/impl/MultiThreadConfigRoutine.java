@@ -7,7 +7,7 @@ import picklesjar.pickles.ut.runtime.routine.config.ThreadConfigRoutine;
 
 public abstract class MultiThreadConfigRoutine
 	extends OnlyLockRoutine
-		implements ThreadConfigRoutine {
+	implements ThreadConfigRoutine {
 	
 	@BeforeClass
 	public static void setUp() {

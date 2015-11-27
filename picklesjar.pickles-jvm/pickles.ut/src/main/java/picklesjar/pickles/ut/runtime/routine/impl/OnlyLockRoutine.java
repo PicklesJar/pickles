@@ -12,7 +12,7 @@ public abstract class OnlyLockRoutine
 	
 	@BeforeClass
 	public static void setUp() {
-		
+	
 		lockKey = LockRoutine.lock();
 	}
 	

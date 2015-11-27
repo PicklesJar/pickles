@@ -1,6 +1,6 @@
 package picklesjar.pickles.ut.runtime.routine.targeting;
 
-import picklesjar.pickles.ut.core.TemporaryPreparedKey;
+import picklesjar.pickles.ut.core.PreparedTemporaryKey;
 import picklesjar.pickles.ut.recipes.sequence.ShouldBeBefore;
 import picklesjar.pickles.ut.runtime.routine.config.ConfigureRoutine;
 
@@ -36,7 +36,7 @@ public interface ClassTargetingRoutine
 	public static void setToTargetClass( String lockKey, String className ) {
 	
 		TestTargetingCommonUtil.setToTarget( lockKey,
-			TemporaryPreparedKey.TEST_TARGET_CLASS_FULLNAME, className );
+			PreparedTemporaryKey.TEST_TARGET_CLASS_FULLNAME, className );
 	}
 	
 }
